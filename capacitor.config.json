@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "newsroom_3_mobile_app",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}
