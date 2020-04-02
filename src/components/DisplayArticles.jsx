@@ -11,7 +11,7 @@ import {
   IonTitle
 } from "@ionic/react";
 import { planet } from "ionicons/icons";
-import image from "../pictures/alien.jpg";
+
 
 const DisplayArticles = props => {
   let articleDisplay = props.articles.map(article => {
