@@ -31,18 +31,10 @@ import './theme/variables.css';
 
 const App = props => {
   props.fetchArticles()
-
   return (
-  
-  <IonApp>
-   
-
-   
+    <IonApp>
       <DisplayArticles />
-  
-   
-  </IonApp>
-  
+    </IonApp>
   )
 }
 

@@ -2,10 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import {
   IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
   IonCard,
   IonCardContent,
   IonItem,
@@ -14,19 +10,27 @@ import {
   IonButton,
   IonGrid
 } from "@ionic/react";
-import { basketball } from "ionicons/icons";
+import { planet } from "ionicons/icons";
+import image from "../pictures/alien.jpg"
 
 const DisplayArticles = props => {
   let articleDisplay = props.articles.map(article => {
     return (
-      <IonGrid key={article.id} id={"article-" + article.id} align='center'>
-        <h1>{article.title}</h1>
-        <p>{article.snippet}</p>
-      </IonGrid>
+      <IonCard>
+        <IonGrid key={article.id} id={"article-" + article.id} align='center'>
+          <IonItem>
+            <IonIcon icon={planet} slot="start" />
+            <IonLabel>{article.title}</IonLabel>
+            <IonButton fill="outline" slot="end">View</IonButton>
+          </IonItem>
+          <img src={image} />
+          <IonCardContent>{article.snippet} </IonCardContent>
+        </IonGrid>
+      </IonCard>
     );
   });
   return <IonContent>{articleDisplay}</IonContent>
- 
+
 };
 const mapStateToProps = state => {
   return {
