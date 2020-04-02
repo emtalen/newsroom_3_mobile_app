@@ -36,19 +36,22 @@ const DisplaySingleArticle = props => {
           </IonCardContent>
         </IonItem>
         <IonItem>
-          <IonButton onClick={() => props.dispatch({type: BACK_TO_ARTICLES_LIST})}>back</IonButton>
+          <IonButton
+            onClick={() => props.dispatch({ type: BACK_TO_ARTICLES_LIST })}
+          >
+            back
+          </IonButton>
         </IonItem>
       </IonGrid>
     </IonCard>
   );
 
-return <IonSegment>{articleDetails}</IonSegment>;
+  return <IonContent>{articleDetails}</IonContent>;
 };
 
 const mapStateToProps = state => {
   return {
-    singleArticle: state.singleArticle 
-  }
-
-}
+    singleArticle: state.singleArticle
+  };
+};
 export default connect(mapStateToProps)(DisplaySingleArticle);

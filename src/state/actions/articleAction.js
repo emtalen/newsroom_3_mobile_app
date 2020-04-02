@@ -10,9 +10,9 @@ const fetchArticles = () => {
   };
 };
 
-const fetchSingleArticle = id => {
+const fetchSingleArticle = articleId => {
   return async dispatch => {
-    let response = await axios.get(`/articles/${id}`);
+    let response = await axios.get(`/articles/${articleId}`);
     return dispatch(dispatchSingleArticleAction(response.data));
   };
 };
