@@ -19,11 +19,12 @@ const DisplaySingleArticle = props => {
   let article = props.singleArticle;
   articleDetails = (
     <IonCard>
-      <IonGrid>
+      <IonGrid key={article.id} align="center">
+      <img src={article.image} alt={`${article.title}-image`} />
         <IonItem>
           <IonTitle key={article.title}>{article.title}</IonTitle>
         </IonItem>
-        <img src={article.image} alt={`${article.title}-image`} />
+       
         <IonItem>
           <IonCardContent key={article.snippet}>
             {article.snippet}

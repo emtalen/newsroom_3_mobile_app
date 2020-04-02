@@ -36,7 +36,7 @@ const App = props => {
     <IonApp>
       
       {props.articleList && <DisplayArticles />}
-      {props.singleArticle && <DisplaySingleArticle />}
+      {props.singleArticle && < DisplaySingleArticle />}
     </IonApp>
   )
 }
