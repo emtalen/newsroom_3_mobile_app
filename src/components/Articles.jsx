@@ -3,8 +3,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardC
 import { basketball } from 'ionicons/icons';
 
 const CardExamples = props => {
-
-
+  
   return (
     <IonPage>
       <IonContent>
