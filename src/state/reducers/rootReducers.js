@@ -8,6 +8,16 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         ...action.payload
       };
+    case actionTypes.GET_SINGLE_ARTICLE_DATA:
+      return {
+        ...state,
+        singleArticle: action.payload,
+        articleList: false,
+        showForm: false,
+        flashMessage: false,
+        welcomeMessage: false
+      };
+
     default:
       return state;
   }

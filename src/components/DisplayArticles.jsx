@@ -14,6 +14,9 @@ import { planet } from "ionicons/icons";
 
 
 const DisplayArticles = props => {
+  const showArticle = articleId => {
+    props.fetchSingleArticle(articleId);
+  };
   let articleDisplay = props.articles.map(article => {
     return (
       <IonCard>
@@ -24,10 +27,15 @@ const DisplayArticles = props => {
           <IonItem>
             <IonTitle align="center">{article.title}</IonTitle>
           </IonItem>
-          <img src={article.image} alt={`${article.title}-image`}/>
+          <img src={article.image} alt={`${article.title}-image`} />
           <IonCardContent>{article.snippet} </IonCardContent>
           <IonItem>
-            <IonButton fill="outline" slot="end">
+            <IonButton
+              fill="outline"
+              slot="end"
+              onClick={() => showArticle(article.id)}
+              key={article.id}
+            >
               View
             </IonButton>
           </IonItem>
@@ -42,5 +50,10 @@ const mapStateToProps = state => {
     articles: state.articles
   };
 };
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchSingleArticle: bindActionCreators(fetchSingleArticle, dispatch)
+  };
+};
 
-export default connect(mapStateToProps)(DisplayArticles);
+export default connect(mapStateToProps, mapDispatchToProps)(DisplayArticles);
