@@ -15,7 +15,7 @@ import {
 const Header = () => {
   return (
     <IonSegment>
-  Menu Item
+      Menu Item
     </IonSegment>
   )
 }

@@ -28,16 +28,16 @@ import './theme/variables.css';
 
 const App = () => (
   <IonApp>
-    
-      <IonHeader>
-      <Header/>
-      </IonHeader>
-     <IonContent>
-     <Menu />
-         <Articles />
-         <Menu />  
-     </IonContent>  
-  
+
+    <IonHeader>
+      <Header />
+    </IonHeader>
+    <IonContent>
+      <Menu />
+      <Articles />
+      <Menu />
+    </IonContent>
+
   </IonApp>
 );
 
