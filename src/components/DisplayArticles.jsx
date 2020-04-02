@@ -6,7 +6,6 @@ import {
   IonCardContent,
   IonItem,
   IonIcon,
-  IonLabel,
   IonButton,
   IonGrid,
   IonTitle
@@ -25,7 +24,7 @@ const DisplayArticles = props => {
           <IonItem>
             <IonTitle align="center">{article.title}</IonTitle>
           </IonItem>
-          <img src={image} />
+          <img src={article.image} alt={`${article.title}-image`}/>
           <IonCardContent>{article.snippet} </IonCardContent>
           <IonItem>
             <IonButton fill="outline" slot="end">
