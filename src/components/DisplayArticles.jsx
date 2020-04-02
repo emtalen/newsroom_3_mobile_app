@@ -8,35 +8,40 @@ import {
   IonIcon,
   IonLabel,
   IonButton,
-  IonGrid
+  IonGrid,
+  IonTitle
 } from "@ionic/react";
 import { planet } from "ionicons/icons";
-import image from "../pictures/alien.jpg"
+import image from "../pictures/alien.jpg";
 
 const DisplayArticles = props => {
   let articleDisplay = props.articles.map(article => {
     return (
       <IonCard>
-        <IonGrid key={article.id} id={"article-" + article.id} align='center'>
+        <IonGrid key={article.id} id={"article-" + article.id} align="center">
           <IonItem>
             <IonIcon icon={planet} slot="start" />
-            <IonLabel>{article.title}</IonLabel>
-            <IonButton fill="outline" slot="end">View</IonButton>
+          </IonItem>
+          <IonItem>
+            <IonTitle align="center">{article.title}</IonTitle>
           </IonItem>
           <img src={image} />
           <IonCardContent>{article.snippet} </IonCardContent>
+          <IonItem>
+            <IonButton fill="outline" slot="end">
+              View
+            </IonButton>
+          </IonItem>
         </IonGrid>
       </IonCard>
     );
   });
-  return <IonContent>{articleDisplay}</IonContent>
-
+  return <IonContent>{articleDisplay}</IonContent>;
 };
 const mapStateToProps = state => {
   return {
-
     articles: state.articles
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(DisplayArticles);
