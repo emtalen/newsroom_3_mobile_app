@@ -8,6 +8,7 @@ import Header from './components/Header';
 import { fetchArticles } from './state/actions/articleAction';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import DisplaySingleArticle from "./components/DisplaySingleArticle";
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -33,7 +34,9 @@ const App = props => {
   props.fetchArticles()
   return (
     <IonApp>
-      <DisplayArticles />
+      
+      {props.articleList && <DisplayArticles />}
+      {props.singleArticle && <DisplaySingleArticle />}
     </IonApp>
   )
 }
@@ -44,4 +47,10 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App)
+const mapStateToProps = state => {
+  return {
+    singleArticle: state.singleArticle, 
+    articleList: state.articleList
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App)

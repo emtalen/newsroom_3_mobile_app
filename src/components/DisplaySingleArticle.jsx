@@ -13,7 +13,6 @@ import {
   IonSegment
 } from "@ionic/react";
 
-import React from "react";
 
 const DisplaySingleArticle = props => {
   let articleDetails;
@@ -47,7 +46,7 @@ const DisplaySingleArticle = props => {
   );
 
   return <IonContent>{articleDetails}</IonContent>;
-};
+};debugger;
 
 const mapStateToProps = state => {
   return {
