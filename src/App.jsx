@@ -3,8 +3,11 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, IonHeader, IonContent, IonToolbar } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Menu from './components/Menu';
-import Articles from './components/Articles';
-import Header from './components/Header'
+import DisplayArticles from './components/DisplayArticles';
+import Header from './components/Header';
+import { fetchArticles } from './state/actions/articleAction';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -26,19 +29,27 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-const App = () => (
+const App = props => {
+  props.fetchArticles()
+
+  return (
+  
   <IonApp>
+   
 
-    <IonHeader>
-      <Header />
-    </IonHeader>
-    <IonContent>
-      <Menu />
-      <Articles />
-      <Menu />
-    </IonContent>
-
+   
+      <DisplayArticles />
+  
+   
   </IonApp>
-);
+  
+  )
+}
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchArticles: bindActionCreators(fetchArticles, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App)
