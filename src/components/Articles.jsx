@@ -4,7 +4,7 @@ import { basketball } from 'ionicons/icons';
 
 const CardExamples = props => {
 
-  
+
   return (
     <IonPage>
       <IonContent>
@@ -14,14 +14,13 @@ const CardExamples = props => {
             <IonLabel>Title snippet</IonLabel>
             <IonButton fill="outline" slot="end">View</IonButton>
           </IonItem>
-
           <IonCardContent>
-        This is some snippet
+            This is some snippet
       </IonCardContent>
         </IonCard>
       </IonContent>
     </IonPage>
   );
-  }
+}
 
 export default CardExamples
