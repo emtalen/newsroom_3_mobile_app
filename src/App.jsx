@@ -62,7 +62,7 @@ const App = props => {
     <IonApp>
       <IonToolbar>
         {" "}
-        <img src={logo} alt="Logo" />
+        <img src={logo} alt="Logo" onClick={e => handleItemClick(e)} />
       </IonToolbar>
       {props.articleList && <DisplayArticles />}
       {props.singleArticle && <DisplaySingleArticle />}
