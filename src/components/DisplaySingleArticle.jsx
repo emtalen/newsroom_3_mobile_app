@@ -51,4 +51,5 @@ const mapStateToProps = state => {
     singleArticle: state.singleArticle
   };
 };
+
 export default connect(mapStateToProps)(DisplaySingleArticle);
