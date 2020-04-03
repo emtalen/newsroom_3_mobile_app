@@ -19,7 +19,7 @@ import { fetchArticles } from "./state/actions/articleAction";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import DisplaySingleArticle from "./components/DisplaySingleArticle";
-import logo from "./images/marstimes.png";
+import logo from "./images/mars_times_cut.png";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -44,10 +44,10 @@ const App = props => {
   props.fetchArticles();
   return (
     <IonApp>
-      <IonTitle>
+      <IonToolbar>
         {" "}
-        <img src={logo} height="100px" width="100" alt="Logo" />
-      </IonTitle>
+        <img src={logo} alt="Logo" />
+      </IonToolbar>
 
       {props.articleList && <DisplayArticles />}
       {props.singleArticle && <DisplaySingleArticle />}
