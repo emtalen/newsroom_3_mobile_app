@@ -6,13 +6,10 @@ import {
   IonCard,
   IonCardContent,
   IonItem,
-  IonIcon,
   IonButton,
   IonGrid,
-  IonTitle,
-  IonSegment
+  IonTitle
 } from "@ionic/react";
-
 
 const DisplaySingleArticle = props => {
   let articleDetails;
@@ -20,11 +17,11 @@ const DisplaySingleArticle = props => {
   articleDetails = (
     <IonCard>
       <IonGrid key={article.id} align="center">
-      <img src={article.image} alt={`${article.title}-image`} />
+        <img src={article.image} alt={`${article.title}-image`} />
         <IonItem>
           <IonTitle key={article.title}>{article.title}</IonTitle>
         </IonItem>
-       
+
         <IonItem>
           <IonCardContent key={article.snippet}>
             {article.snippet}
@@ -47,7 +44,7 @@ const DisplaySingleArticle = props => {
   );
 
   return <IonContent>{articleDetails}</IonContent>;
-}
+};
 
 const mapStateToProps = state => {
   return {
