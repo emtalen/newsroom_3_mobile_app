@@ -66,24 +66,24 @@ const App = props => {
       </IonToolbar>
       {props.articleList && <DisplayArticles />}
       {props.singleArticle && <DisplaySingleArticle />}
-      <IonToolbar>
+      <IonToolbar no-border no-padding>
         <IonSegment onIonChange={e => handleItemClick(e)}>
-          {/* <IonSegmentButton value="">
-            <IonIcon icon={planet} slot="start" />
-          </IonSegmentButton> */}
-          <IonSegmentButton value="latest_news">
-            <IonLabel>Latest News</IonLabel>
+          <IonSegmentButton value="latest_news" size="small">
+            <IonLabel>
+              Latest <br />
+              News
+            </IonLabel>
           </IonSegmentButton>
-          <IonSegmentButton value="politics">
+          <IonSegmentButton value="politics" size="small">
             <IonLabel>Politics</IonLabel>
           </IonSegmentButton>
-          <IonSegmentButton value="sports">
+          <IonSegmentButton value="sports" size="small">
             <IonLabel>Sports</IonLabel>
           </IonSegmentButton>
-          <IonSegmentButton value="tech">
+          <IonSegmentButton value="tech" size="small">
             <IonLabel>Tech</IonLabel>
           </IonSegmentButton>
-          <IonSegmentButton value="culture">
+          <IonSegmentButton value="culture" size="small">
             <IonLabel>Culture</IonLabel>
           </IonSegmentButton>
         </IonSegment>

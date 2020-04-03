@@ -226,4 +226,9 @@ http://ionicframework.com/docs/theming/ */
   ion-title.title-large {
     --color: white;
   }
+
+  ion-segment-button {
+    padding: 2px;
+    font-size: x-small;
+  }
 }
