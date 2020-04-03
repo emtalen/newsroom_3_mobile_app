@@ -47,7 +47,7 @@ const DisplaySingleArticle = props => {
   );
 
   return <IonContent>{articleDetails}</IonContent>;
-};debugger;
+}
 
 const mapStateToProps = state => {
   return {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, IonHeader, IonContent, IonToolbar } from '@ionic/react';
+import { IonApp, IonRouterOutlet, IonHeader, IonContent, IonToolbar, IonItem, IonSegment, IonGrid, IonTitle } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Menu from './components/Menu';
 import DisplayArticles from './components/DisplayArticles';
@@ -9,6 +9,7 @@ import { fetchArticles } from './state/actions/articleAction';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import DisplaySingleArticle from "./components/DisplaySingleArticle";
+import logo from "./images/marstimes.png"
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -34,9 +35,11 @@ const App = props => {
   props.fetchArticles()
   return (
     <IonApp>
-      
+      <IonTitle> <img src={logo} height="100px" width="100" alt="Logo" /></IonTitle>
+     
       {props.articleList && <DisplayArticles />}
       {props.singleArticle && < DisplaySingleArticle />}
+  
     </IonApp>
   )
 }
