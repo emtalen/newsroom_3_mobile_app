@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import { SELECT_CATEGORY } from './state/actions/actionTypes'
 import {
   IonApp,
   IonRouterOutlet,
@@ -9,7 +10,12 @@ import {
   IonItem,
   IonSegment,
   IonGrid,
-  IonTitle
+  IonTitle,
+  IonFooter,
+  IonButton,
+  IonLabel,
+  IonSegmentButton,
+  IonIcon
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import Menu from "./components/Menu";
@@ -20,6 +26,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import DisplaySingleArticle from "./components/DisplaySingleArticle";
 import logo from "./images/mars_times_cut.png";
+import { planet } from "ionicons/icons";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -42,22 +49,53 @@ import "./theme/variables.css";
 
 const App = props => {
   props.fetchArticles();
+  
+  const handleItemClick = event => {
+    props.dispatch({
+      type: SELECT_CATEGORY,
+      payload: {
+        selectedCategory: event.target.value,
+      }
+    });
+  };
   return (
     <IonApp>
       <IonToolbar>
         {" "}
         <img src={logo} alt="Logo" />
       </IonToolbar>
-
       {props.articleList && <DisplayArticles />}
       {props.singleArticle && <DisplaySingleArticle />}
+      <IonToolbar>
+        <IonSegment onIonChange={e => handleItemClick(e)}>
+          <IonSegmentButton value="">
+            <IonIcon icon={planet} slot="start" />
+          </IonSegmentButton>
+          <IonSegmentButton value="latest_news">
+            <IonLabel>Latest News</IonLabel>
+          </IonSegmentButton>
+          <IonSegmentButton value="politics">
+            <IonLabel>Politics</IonLabel>
+          </IonSegmentButton>
+          <IonSegmentButton value="sports">
+            <IonLabel>Sports</IonLabel>
+          </IonSegmentButton>
+          <IonSegmentButton value="tech">
+            <IonLabel>Tech</IonLabel>
+          </IonSegmentButton>
+          <IonSegmentButton value="culture">
+            <IonLabel>Culture</IonLabel>
+          </IonSegmentButton>
+        </IonSegment>
+      </IonToolbar>
     </IonApp>
   );
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchArticles: bindActionCreators(fetchArticles, dispatch)
+    fetchArticles: bindActionCreators(fetchArticles, dispatch),
+    dispatch: dispatch
   };
 };
 

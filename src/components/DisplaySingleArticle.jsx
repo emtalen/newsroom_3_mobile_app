@@ -8,7 +8,8 @@ import {
   IonItem,
   IonButton,
   IonGrid,
-  IonTitle
+  IonTitle,
+  IonImg
 } from "@ionic/react";
 
 const DisplaySingleArticle = props => {
@@ -17,7 +18,7 @@ const DisplaySingleArticle = props => {
   articleDetails = (
     <IonCard>
       <IonGrid key={article.id} align="center">
-        <img src={article.image} alt={`${article.title}-image`} />
+        <IonImg src={article.image} alt={`${article.title}-image`} />
         <IonItem>
           <IonTitle key={article.title}>{article.title}</IonTitle>
         </IonItem>
