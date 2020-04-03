@@ -68,9 +68,9 @@ const App = props => {
       {props.singleArticle && <DisplaySingleArticle />}
       <IonToolbar>
         <IonSegment onIonChange={e => handleItemClick(e)}>
-          <IonSegmentButton value="">
+          {/* <IonSegmentButton value="">
             <IonIcon icon={planet} slot="start" />
-          </IonSegmentButton>
+          </IonSegmentButton> */}
           <IonSegmentButton value="latest_news">
             <IonLabel>Latest News</IonLabel>
           </IonSegmentButton>
