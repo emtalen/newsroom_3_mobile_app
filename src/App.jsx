@@ -25,6 +25,7 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import LoginForm from "./components/LoginForm";
 
 const App = (props) => {
   props.fetchArticles();
@@ -32,6 +33,7 @@ const App = (props) => {
   return (
     <IonApp>
       <Menu />
+      {props.showLoginForm && <LoginForm />}
       {props.articleList && <DisplayArticles />}
       {props.singleArticle && <DisplaySingleArticle />}
     </IonApp>
@@ -49,6 +51,7 @@ const mapStateToProps = (state) => {
   return {
     singleArticle: state.singleArticle,
     articleList: state.articleList,
+    showLoginForm: state.showLoginForm
   };
 };
 
