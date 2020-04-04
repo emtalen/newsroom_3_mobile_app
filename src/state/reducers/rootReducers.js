@@ -14,15 +14,23 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         singleArticle: action.payload,
         articleList: false
-      }
+      };
 
     case actionTypes.BACK_TO_ARTICLES_LIST:
       return {
         ...state,
         singleArticle: undefined,
         articleList: true
-      }
-      
+      };
+    case actionTypes.SELECT_CATEGORY:
+    case actionTypes.SELECT_CATEGORY:
+      return {
+        ...state,
+        selectedCategory: action.payload.selectedCategory,
+        singleArticle: undefined,
+        articleList: true,
+      };
+
     default:
       return state;
   }
