@@ -21,6 +21,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         singleArticle: undefined,
         articleList: true,
+        showLoginForm: false
       };
 
     case actionTypes.SELECT_CATEGORY:
@@ -41,9 +42,6 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload,
-        articleList: false,
-        singleArticle: undefined,
-        selectedCategory: ''
       };
 
     default:

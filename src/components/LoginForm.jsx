@@ -2,7 +2,7 @@ import React from "react";
 import auth from "../modules/auth";
 import { AUTHENTICATE } from "../state/actions/actionTypes";
 import { connect } from "react-redux";
-import { IonContent, IonButton, IonItem, IonItemDivider, IonInput, IonList } from "@ionic/react";
+import { IonContent, IonButton, IonItem, IonItemDivider, IonInput, IonList, IonModal, IonTitle } from "@ionic/react";
 import {useState} from 'react'
 import {BACK_TO_ARTICLES_LIST} from '../state/actions/actionTypes'
 
@@ -35,13 +35,8 @@ const LoginForm = (props) => {
       props.currentUser.email.indexOf("@")
     );
     login = (
-        <IonContent id="logged-in-message" class="success-message">
-          {cutEmail}
-          <IonButton
-            onClick={() => props.dispatch({ type: BACK_TO_ARTICLES_LIST })}
-          >
-            Back
-          </IonButton>
+        <IonContent size='large'>
+          Welcome back {cutEmail}
         </IonContent>
     );
   } else {
@@ -63,14 +58,27 @@ const LoginForm = (props) => {
     );
   }
 
-  return <div>{login}</div>;
+  return (
+    <IonContent>
+      <IonModal isOpen={props.showLoginForm}>
+        <p style={{color:'white', fontWeight:'bold'}}>Sign In</p>
+        {login}
+        <IonButton
+          onClick={() => props.dispatch({ type: BACK_TO_ARTICLES_LIST })}
+        >
+          Back
+        </IonButton>
+      </IonModal>
+    </IonContent>
+  );
+  
 };
 
 const mapStateToProps = (state) => {
   return {
     authenticated: state.authenticated,
     currentUser: state.currentUser,
-    articleList: state.articleList
+    showLoginForm: state.showLoginForm
   };
 };
 

@@ -5,7 +5,7 @@ const initialState = {
   selectedCategory: "",
   currentUser: {},
   showLoginForm: false,
-  authenticated: false
+  authenticated: false,
 };
 
 export default initialState;
