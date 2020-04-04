@@ -29,12 +29,17 @@ const RestrictedContent = (props) => {
           <br />
           <a href="https://themarstimes.netlify.com/">visit our website.</a>
         </IonCardContent>
-        <IonButton onClick={() =>
-              props.dispatch({
-                type: SHOW_LOGIN_FORM,
-                payload: { showLoginForm: true}
-              })
-            }>Login</IonButton>
+        <IonButton
+          fill="outline"
+          onClick={() =>
+            props.dispatch({
+              type: SHOW_LOGIN_FORM,
+              payload: { showLoginForm: true },
+            })
+          }
+        >
+          Login
+        </IonButton>
       </>
     );
 

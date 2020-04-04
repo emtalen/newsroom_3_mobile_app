@@ -43,17 +43,27 @@ const LoginForm = (props) => {
     login = (
       <IonContent>
         <IonList>
-          <IonItemDivider>Email</IonItemDivider>
           <IonItem>
-            <IonInput type="email" value={email} placeholder="Email" onIonChange={e => setEmail(e.detail.value)}></IonInput>
+            <IonInput
+              type="email"
+              value={email}
+              placeholder="Email"
+              onIonChange={(e) => setEmail(e.detail.value)}
+            ></IonInput>
           </IonItem>
 
-          <IonItemDivider>Password</IonItemDivider>
           <IonItem>
-            <IonInput type="password" value={password} placeholder="Password" onIonChange={e => setPassword(e.detail.value)}></IonInput>
+            <IonInput
+              type="password"
+              value={password}
+              placeholder="Password"
+              onIonChange={(e) => setPassword(e.detail.value)}
+            ></IonInput>
           </IonItem>
-          <IonButton onClick={onLogin}>Sign in</IonButton>
         </IonList>
+        <IonButton fill="outline" onClick={onLogin}>
+          Sign in
+        </IonButton>
       </IonContent>
     );
   }
@@ -61,9 +71,10 @@ const LoginForm = (props) => {
   return (
     <IonContent>
       <IonModal isOpen={props.showLoginForm}>
-        <p style={{color:'white', fontWeight:'bold'}}>Sign In</p>
+        <p style={{ color: "white", fontWeight: "bold" }}>Sign In</p>
         {login}
         <IonButton
+          fill="outline"
           onClick={() => props.dispatch({ type: BACK_TO_ARTICLES_LIST })}
         >
           Back

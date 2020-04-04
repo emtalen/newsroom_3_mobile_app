@@ -40,12 +40,11 @@ const DisplaySingleArticle = props => {
           </IonCardContent>
         </IonItem>
         <IonItem>
-          <IonCardContent key={article.content}>
-            {showContent}
-          </IonCardContent>
+          <IonCardContent key={article.content}>{showContent}</IonCardContent>
         </IonItem>
         <IonItem>
           <IonButton
+            fill="outline"
             onClick={() => props.dispatch({ type: BACK_TO_ARTICLES_LIST })}
           >
             Back
