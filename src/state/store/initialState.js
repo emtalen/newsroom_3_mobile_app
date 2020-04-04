@@ -2,7 +2,8 @@ const initialState = {
   articles: [],
   articleList: true,
   singleArticle: undefined,
-  selectedCategory: ''
+  selectedCategory: '',
+  currentUser: {}
 };
 
 export default initialState;
