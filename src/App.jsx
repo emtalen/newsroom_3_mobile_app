@@ -1,32 +1,11 @@
 import React from "react";
-import { Redirect, Route } from "react-router-dom";
-import { SELECT_CATEGORY } from './state/actions/actionTypes'
-import {
-  IonApp,
-  IonRouterOutlet,
-  IonHeader,
-  IonContent,
-  IonToolbar,
-  IonItem,
-  IonSegment,
-  IonGrid,
-  IonTitle,
-  IonFooter,
-  IonButton,
-  IonLabel,
-  IonSegmentButton,
-  IonIcon
-} from "@ionic/react";
-import { IonReactRouter } from "@ionic/react-router";
+import { IonApp } from "@ionic/react";
 import Menu from "./components/Menu";
 import DisplayArticles from "./components/DisplayArticles";
-import Header from "./components/Header";
 import { fetchArticles } from "./state/actions/articleAction";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import DisplaySingleArticle from "./components/DisplaySingleArticle";
-import logo from "./images/mars_times_cut.png";
-import { planet } from "ionicons/icons";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -47,62 +26,29 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 
-const App = props => {
+const App = (props) => {
   props.fetchArticles();
-  
-  const handleItemClick = event => {
-    props.dispatch({
-      type: SELECT_CATEGORY,
-      payload: {
-        selectedCategory: event.target.value,
-      }
-    });
-  };
+
   return (
     <IonApp>
-      <IonToolbar>
-        {" "}
-        <img src={logo} alt="Logo" onClick={e => handleItemClick(e)} />
-      </IonToolbar>
+      <Menu />
       {props.articleList && <DisplayArticles />}
       {props.singleArticle && <DisplaySingleArticle />}
-      <IonToolbar no-border no-padding>
-        <IonSegment onIonChange={e => handleItemClick(e)}>
-          <IonSegmentButton value="latest_news" size="small">
-            <IonLabel>
-              Latest <br />
-              News
-            </IonLabel>
-          </IonSegmentButton>
-          <IonSegmentButton value="politics" size="small">
-            <IonLabel>Politics</IonLabel>
-          </IonSegmentButton>
-          <IonSegmentButton value="sports" size="small">
-            <IonLabel>Sports</IonLabel>
-          </IonSegmentButton>
-          <IonSegmentButton value="tech" size="small">
-            <IonLabel>Tech</IonLabel>
-          </IonSegmentButton>
-          <IonSegmentButton value="culture" size="small">
-            <IonLabel>Culture</IonLabel>
-          </IonSegmentButton>
-        </IonSegment>
-      </IonToolbar>
     </IonApp>
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     fetchArticles: bindActionCreators(fetchArticles, dispatch),
-    dispatch: dispatch
+    dispatch: dispatch,
   };
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     singleArticle: state.singleArticle,
-    articleList: state.articleList
+    articleList: state.articleList,
   };
 };
 
