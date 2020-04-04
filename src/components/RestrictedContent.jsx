@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { IonCardContent, IonButton } from "@ionic/react";
+import {SHOW_LOGIN_FORM} from '../state/actions/actionTypes'
+
 const RestrictedContent = (props) => {
   let article = props.singleArticle;
 
@@ -27,7 +29,17 @@ const RestrictedContent = (props) => {
           <br />
           <a href="https://themarstimes.netlify.com/">visit our website.</a>
         </IonCardContent>
-        <IonButton>Login</IonButton>
+        <IonButton
+          fill="outline"
+          onClick={() =>
+            props.dispatch({
+              type: SHOW_LOGIN_FORM,
+              payload: { showLoginForm: true },
+            })
+          }
+        >
+          Login
+        </IonButton>
       </>
     );
 

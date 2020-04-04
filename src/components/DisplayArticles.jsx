@@ -10,23 +10,23 @@ import {
   IonIcon,
   IonButton,
   IonGrid,
-  IonTitle
+  IonTitle,
 } from "@ionic/react";
 import { planet } from "ionicons/icons";
 
-const DisplayArticles = props => {
-  const showArticle = articleId => {
+const DisplayArticles = (props) => {
+  const showArticle = (articleId) => {
     props.fetchSingleArticle(articleId);
   };
   let articles;
   if (props.selectedCategory) {
-    articles = props.articles.filter(article => {
+    articles = props.articles.filter((article) => {
       return article.category === props.selectedCategory && article;
     });
   } else {
     articles = props.articles;
   }
-  let articleDisplay = articles.map(article => {
+  let articleDisplay = articles.map((article) => {
     return (
       <IonCard>
         <IonGrid key={article.id} id={"article-" + article.id} align="center">
@@ -55,16 +55,16 @@ const DisplayArticles = props => {
   return <IonContent>{articleDisplay}</IonContent>;
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     articles: state.articles,
-    selectedCategory: state.selectedCategory
+    selectedCategory: state.selectedCategory,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    fetchSingleArticle: bindActionCreators(fetchSingleArticle, dispatch)
+    fetchSingleArticle: bindActionCreators(fetchSingleArticle, dispatch),
   };
 };
 

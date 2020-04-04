@@ -6,29 +6,42 @@ const rootReducer = (state = initialState, action) => {
     case actionTypes.GET_ARTICLE_DATA:
       return {
         ...state,
-        ...action.payload
+        ...action.payload,
       };
 
     case actionTypes.GET_SINGLE_ARTICLE_DATA:
       return {
         ...state,
         singleArticle: action.payload,
-        articleList: false
+        articleList: false,
       };
 
     case actionTypes.BACK_TO_ARTICLES_LIST:
       return {
         ...state,
         singleArticle: undefined,
-        articleList: true
+        articleList: true,
+        showLoginForm: false
       };
-    case actionTypes.SELECT_CATEGORY:
+
     case actionTypes.SELECT_CATEGORY:
       return {
         ...state,
         selectedCategory: action.payload.selectedCategory,
         singleArticle: undefined,
         articleList: true,
+      };
+
+    case actionTypes.AUTHENTICATE:
+      return {
+        ...state,
+        authenticated: true,
+        currentUser: action.payload.currentUser,
+      };
+    case actionTypes.SHOW_LOGIN_FORM:
+      return {
+        ...state,
+        ...action.payload,
       };
 
     default:
