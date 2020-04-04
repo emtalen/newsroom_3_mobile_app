@@ -11,10 +11,21 @@ import {
   IonTitle,
   IonImg
 } from "@ionic/react";
+import RestrictedContent from './RestrictedContent'
+import FullContent from './FullContent'
 
 const DisplaySingleArticle = props => {
   let articleDetails;
   let article = props.singleArticle;
+  let currentUser = props.currentUser;
+
+  let showContent =
+    currentUser.role === "subscriber" || article.premium === false ? (
+      <FullContent />
+    ) : (
+      <RestrictedContent />
+    );
+
   articleDetails = (
     <IonCard>
       <IonGrid key={article.id} align="center">
@@ -30,14 +41,14 @@ const DisplaySingleArticle = props => {
         </IonItem>
         <IonItem>
           <IonCardContent key={article.content}>
-            {article.content}
+            {showContent}
           </IonCardContent>
         </IonItem>
         <IonItem>
           <IonButton
             onClick={() => props.dispatch({ type: BACK_TO_ARTICLES_LIST })}
           >
-            back
+            Back
           </IonButton>
         </IonItem>
       </IonGrid>
@@ -49,7 +60,8 @@ const DisplaySingleArticle = props => {
 
 const mapStateToProps = state => {
   return {
-    singleArticle: state.singleArticle
+    singleArticle: state.singleArticle,
+    currentUser: state.currentUser
   };
 };
 
